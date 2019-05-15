@@ -1,7 +1,11 @@
 
 function makeTimer() {
 	
-		  var endTime = new Date("4 June 2019 12:00:00 GMT+04:00");			
+		  //var endTime = new Date("4 June 2019 12:00:00 GMT+04:00");			
+			//endTime = (Date.parse(endTime) / 1000);
+
+			var deadLine = "4 June 2019 12:00:00 EDT";
+			var endTime = new Date(Date.parse(deadLine));
 			endTime = (Date.parse(endTime) / 1000);
 
 			var now = new Date();
