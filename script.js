@@ -1,7 +1,7 @@
 function makeTimer() {
 
 	//		var endTime = new Date("29 April 2018 9:56:00 GMT+01:00");	
-		    var endTime = new Date("29 May 2019 9:56:00 GMT+01:00");			
+		    var endTime = new Date("4 June 2019 12:00:00 EST+01:00");			
 			endTime = (Date.parse(endTime) / 1000);
 
 			var now = new Date();
@@ -28,7 +28,11 @@ function makeTimer() {
 			$("#minutes").html(minutes);
 			$("#seconds").html(seconds);		
 
-
+			if ($(document).scrollTop() > 150){
+				$("header").addClass("shrink");
+			  } else {
+				$("header").removeClass("shrink");
+			  }
 	}
 	
 
