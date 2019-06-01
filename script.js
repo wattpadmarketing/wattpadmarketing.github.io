@@ -49,12 +49,14 @@ $( document ).ready(function() {
 	// 	$(".sub-menu").hide();
 	// });
 
-	$(".learn-more-button").on("click", function() {
-		var dataTitle = $(this).data("award-title");
-		var dataCopy = $(this).data("award-copy");
-
-		$("#modal-award-title").html(dataTitle)
-		$("#modal-award-copy").html(dataCopy)
+	$(document).on("click",".awards-item", function() {
+		console.log("hit")
+		var dataTitle = $(this).find(".categoryTitleHolder span").text();
+		var dataCopy = $(this).find(".categoryCopyHolder span").text();
+		var dataImage = $(this).find(".award-active").attr('src');
+		$("#modal-award-title").html(dataTitle);
+		$("#modal-award-copy").html(dataCopy);
+		$('.award-modal-wrapper').css('background-image', 'url(' + dataImage + ')');
 
 	})
 
