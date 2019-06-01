@@ -57,6 +57,7 @@ $( document ).ready(function() {
 		$("#modal-award-title").html(dataTitle);
 		$("#modal-award-copy").html(dataCopy);
 		$('.award-modal-wrapper').css('background-image', 'url(' + dataImage + ')');
+		$(".award-modal-wrapper").fadeIn();
 
 	})
 
