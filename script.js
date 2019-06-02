@@ -58,8 +58,11 @@ $( document ).ready(function() {
 		$("#modal-award-copy").html(dataCopy);
 		$('.award-modal-wrapper').css('background-image', 'url(' + dataImage + ')');
 		$(".award-modal-wrapper").fadeIn();
+	});
 
-	})
+	$(document).on("click", ".close-btn", function() {
+		$(".award-modal-wrapper").fadeOut();
+	});
 
 	function expandDiv() {
 		console.log("hoy");
