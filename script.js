@@ -70,7 +70,7 @@ $( document ).ready(function() {
 	});
 
 
-	$(document).on("click", ".slick-current" , function() {
+	$(document).on("click", ".slick-center.slick-current" , function() {
 
 		console.log("clicked");
 
@@ -110,7 +110,7 @@ $( document ).ready(function() {
 
 		$("body").prepend($backgroundDiv);
 		
-		var coverCopy = $(this).find(".cover-copy").html();
+		var coverCopy = $(this).find(".cover-copy-wrapper").data("quote");
 		var copyAuthor = $(this).find(".cover-author").html();
 		var copyTitle = $(this).find(".cover-title").html();
 		console.log(copyAuthor, copyTitle)
@@ -141,7 +141,7 @@ $( document ).ready(function() {
 		$('.cover-copy-wrapper .cover-copy').each(function() {
 			$(this).show();
 			$quote = $(this).html();
-			$truncatedText = $quote.split(' ').slice(0, 50).join(' ') + " ... " + '<a href="#" class="read-more orange-text">Read more</a>'
+			$truncatedText = $quote.split(' ').slice(0, 50).join(' ') + " ... " + ''
 			$(this).data('content', $(this).html())
 			$(this).data('limit', $truncatedText)
 			$(this).html($(this).data('limit'))
