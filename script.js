@@ -70,10 +70,11 @@ $( document ).ready(function() {
 	});
 
 
-	$(document).on("click", ".quote-text blockquote" , function() {
+	$(document).on("click", ".slick-current" , function() {
 
+		console.log("clicked");
 
-        var modalText = new TimelineMax();
+        //var modalText = new TimelineMax();
 
         $backgroundDiv = $("<div/>", {
             id: "background-modal",
@@ -87,12 +88,17 @@ $( document ).ready(function() {
                 }).append(
                     $("<blockquote/>", {
                         id: "full-quote",
-                        class: "white-text light-text"
+                        class: "regular-txt white-txt"
                     })
                 ).append(
                     $("<figcaption/>", {
                         id: "full-sig",
-                        class: "a-right white-text light-text margin-t"
+                        class: "regular-txt white-txt text-right"
+                    })
+                ).append(
+                    $("<figcaption/>", {
+                        id: "full-title",
+                        class: "regular-txt white-txt text-right"
                     })
                 )
             ).append(
@@ -102,18 +108,32 @@ $( document ).ready(function() {
             )
         );
 
-        $("body").prepend($backgroundDiv);
-        $("#full-quote").html($(this).data("quote"));
-        $("#full-sig").html($(this).data("sig"));
-        modalText.set("#full-quote-wrapper", {
-            autoAlpha: 1
-        });
-        modalText.set('#full-quote-wrapper', {
-            className: '+=text-fuzz'
-        });
+		$("body").prepend($backgroundDiv);
+		
+		var coverCopy = $(this).find(".cover-copy").html();
+		var copyAuthor = $(this).find(".cover-author").html();
+		var copyTitle = $(this).find(".cover-title").html();
+		console.log(copyAuthor, copyTitle)
+		console.log($(this).find(".cover-copy").html())
+		$("#full-quote").html(coverCopy);
+		
+		$("#full-sig").html(copyAuthor);
+		$("#full-title").html(copyTitle);
+
+        // modalText.set("#full-quote-wrapper", {
+        //     autoAlpha: 1
+        // });
+        // modalText.set('#full-quote-wrapper', {
+        //     className: '+=text-fuzz'
+        // });
 
         return false;
 
+	});
+	$(document).on("click", "#close-btn", function() {
+        $("#background-modal").fadeOut(300, function() {
+            $(this).remove();
+        });
     });
 
 
