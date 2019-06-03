@@ -69,15 +69,59 @@ $( document ).ready(function() {
 		$(".award-modal-wrapper").fadeOut();
 	});
 
-	function expandDiv() {
-		console.log("hoy");
-	}
+
+	$(document).on("click", ".quote-text blockquote" , function() {
+
+
+        var modalText = new TimelineMax();
+
+        $backgroundDiv = $("<div/>", {
+            id: "background-modal",
+            "class": "a"
+        }).append(
+            $("<div/>", {
+                id: "full-quote-wrapper"
+            }).append(
+                $("<div/>", {
+                    id: "full-quote-inner"
+                }).append(
+                    $("<blockquote/>", {
+                        id: "full-quote",
+                        class: "white-text light-text"
+                    })
+                ).append(
+                    $("<figcaption/>", {
+                        id: "full-sig",
+                        class: "a-right white-text light-text margin-t"
+                    })
+                )
+            ).append(
+                $("<div/>", {
+                    id: "close-btn"
+                })
+            )
+        );
+
+        $("body").prepend($backgroundDiv);
+        $("#full-quote").html($(this).data("quote"));
+        $("#full-sig").html($(this).data("sig"));
+        modalText.set("#full-quote-wrapper", {
+            autoAlpha: 1
+        });
+        modalText.set('#full-quote-wrapper', {
+            className: '+=text-fuzz'
+        });
+
+        return false;
+
+    });
+
 
 	function truncateQuotes (){
-		$('.cover-copy-wrapper').each(function() {
+		$('.cover-copy-wrapper .cover-copy').each(function() {
 			$(this).show();
 			$quote = $(this).html();
-			$truncatedText = $quote.split(' ').slice(0, 30).join(' ') + " ... " + '<a href="#" class="read-more orange-text">Read more</a>'
+			$truncatedText = $quote.split(' ').slice(0, 50).join(' ') + " ... " + '<a href="#" class="read-more orange-text">Read more</a>'
 			$(this).data('content', $(this).html())
 			$(this).data('limit', $truncatedText)
 			$(this).html($(this).data('limit'))
