@@ -149,5 +149,5 @@ $( document ).ready(function() {
 	}
 
 
-	setTimeout(truncateQuotes, 1000)
+	setTimeout(truncateQuotes, 2000)
 });
