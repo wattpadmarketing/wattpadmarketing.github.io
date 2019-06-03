@@ -4,7 +4,7 @@ $( document ).ready(function() {
 
 
 	$(document).on('mouseenter', '.awards-container .awards-item', function () {
-		console.log("over");
+		//console.log("over");
 		$( this ).find(".award-over").fadeOut();
 		$( this ).find(".award-active").fadeIn();
 		$( this ).find(".learn-more-button").fadeIn();
@@ -21,6 +21,11 @@ $( document ).ready(function() {
 	$(document).on('mouseleave', '.nav-wrapper', function () {
 		$(".sub-menu").hide();
 	});
+
+
+
+
+	
 
 	// $( ".awards-container .awards-item" ).hover(
 	// 	function() {
@@ -50,7 +55,7 @@ $( document ).ready(function() {
 	// });
 
 	$(document).on("click",".awards-item", function() {
-		console.log("hit")
+		//console.log("hit")
 		var dataTitle = $(this).find(".categoryTitleHolder span").text();
 		var dataCopy = $(this).find(".categoryCopyHolder span").text();
 		var dataImage = $(this).find(".award-active").attr('src');
@@ -68,5 +73,17 @@ $( document ).ready(function() {
 		console.log("hoy");
 	}
 
+	function truncateQuotes (){
+		$('.cover-copy-wrapper').each(function() {
+			$(this).show();
+			$quote = $(this).html();
+			$truncatedText = $quote.split(' ').slice(0, 50).join(' ') + " ... " + '<a href="#" class="read-more orange-text">Read more</a>'
+			$(this).data('content', $(this).html())
+			$(this).data('limit', $truncatedText)
+			$(this).html($(this).data('limit'))
+		});
+	}
 
+
+	setTimeout(truncateQuotes, 1000)
 });
