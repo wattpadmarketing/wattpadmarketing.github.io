@@ -77,7 +77,7 @@ $( document ).ready(function() {
 		$('.cover-copy-wrapper').each(function() {
 			$(this).show();
 			$quote = $(this).html();
-			$truncatedText = $quote.split(' ').slice(0, 50).join(' ') + " ... " + '<a href="#" class="read-more orange-text">Read more</a>'
+			$truncatedText = $quote.split(' ').slice(0, 30).join(' ') + " ... " + '<a href="#" class="read-more orange-text">Read more</a>'
 			$(this).data('content', $(this).html())
 			$(this).data('limit', $truncatedText)
 			$(this).html($(this).data('limit'))
