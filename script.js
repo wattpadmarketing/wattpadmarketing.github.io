@@ -48,6 +48,19 @@ $( document ).ready(function() {
 	});
 
 
+	$(document).on('click', 'a[href*="#"]', function(e) {
+		e.preventDefault()
+	  
+		$('html, body').animate(
+		  {
+			scrollTop: $($(this).attr('href')).offset().top - 100,
+		  },
+		  500,
+		  'linear'
+		)
+	  })
+
+
 	$(document).on("click", ".slick-center.slick-current" , function() {
 
 
