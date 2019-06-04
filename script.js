@@ -5,13 +5,13 @@ $( document ).ready(function() {
 
 	$(document).on('mouseenter', '.awards-container .awards-item', function () {
 		//console.log("over");
-		$( this ).find(".award-over").fadeOut();
-		$( this ).find(".award-active").fadeIn();
-		$( this ).find(".learn-more-button").fadeIn();
+		$( this ).find(".award-over").animate({'opacity':'0'}, 100);
+		$( this ).find(".award-active").animate({'opacity':'1'}, 100);
+		$( this ).find(".learn-more-button").animate({'opacity':'1'}, 100);
 	  }).on('mouseleave', '.awards-container .awards-item', function () {
-		$( this ).find(".award-over").fadeIn();
-		$( this ).find(".award-active").fadeOut();
-		$( this ).find(".learn-more-button").fadeOut();	
+		$( this ).find(".award-over").animate({'opacity':'1'}, 100);
+		 $( this ).find(".award-active").animate({'opacity':'0'}, 100);
+		 $( this ).find(".learn-more-button").animate({'opacity':'0'}, 100);
 	});
 
 	$(document).on('mouseenter', '.country-wrapper', function () {
