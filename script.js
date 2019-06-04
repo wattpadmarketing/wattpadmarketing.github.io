@@ -22,8 +22,15 @@ $( document ).ready(function() {
 		$(".sub-menu").hide();
 	});
 
+	$(document).on('mouseenter', '#language-link', function () {
+		$(".root-nav a").hide();
+		$(".root-nav").addClass("kill-pad");
+	});
+	$(document).on('mouseleave', '#language-link', function () {
+		$(".root-nav a").show();
+		$(".root-nav").removeClass("kill-pad");
 
-
+	});
 
 	$(document).on("click",".awards-item", function() {
 		//console.log("hit")
@@ -43,7 +50,6 @@ $( document ).ready(function() {
 
 	$(document).on("click", ".slick-center.slick-current" , function() {
 
-		console.log("clicked");
 
         //var modalText = new TimelineMax();
 
