@@ -4,14 +4,13 @@ $( document ).ready(function() {
 
 
 	$(document).on('mouseenter', '.awards-container .awards-item', function () {
-		//console.log("over");
-		$( this ).find(".award-over").animate({'opacity':'0'}, 500);
-		$( this ).find(".award-active").animate({'opacity':'1'}, 500);
-		$( this ).find(".learn-more-button").animate({'opacity':'1'}, 500);
+			$( this ).find(".award-over").animate({'opacity':'0'}, 500);
+			$( this ).find(".award-active").animate({'opacity':'1'}, 500);
+			$( this ).find(".learn-more-button").animate({'opacity':'1'}, 500);
 	  }).on('mouseleave', '.awards-container .awards-item', function () {
-		$( this ).find(".award-over").animate({'opacity':'1'}, 100);
-		 $( this ).find(".award-active").animate({'opacity':'0'}, 100);
-		 $( this ).find(".learn-more-button").animate({'opacity':'0'}, 100);
+			$( this ).find(".award-over").animate({'opacity':'1'}, 100);
+			$( this ).find(".award-active").animate({'opacity':'0'}, 100);
+			$( this ).find(".learn-more-button").animate({'opacity':'0'}, 100);
 	});
 
 	$(document).on('mouseenter', '.country-wrapper', function () {
@@ -33,7 +32,6 @@ $( document ).ready(function() {
 	});
 
 	$(document).on("click",".awards-item", function() {
-		//console.log("hit")
 		var dataTitle = $(this).find(".categoryTitleHolder span").text();
 		var dataCopy = $(this).find(".categoryCopyHolder span").text();
 		var dataImage = $(this).find(".award-active").attr('src');
