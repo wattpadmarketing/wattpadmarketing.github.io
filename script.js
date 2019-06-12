@@ -46,7 +46,7 @@ $( document ).ready(function() {
 	});
 
 
-	$(document).on('click', 'a[href*="#"]', function(e) {
+	$(document).on('click', '.sub-menu a[href*="#"]', function(e) {
 		e.preventDefault()
 	  
 		$('html, body').animate(
@@ -59,79 +59,92 @@ $( document ).ready(function() {
 	  })
 
 
-	// $(document).on("click", ".slick-center.slick-current" , function() {
+	$(document).on("click", ".slick-slide.slick-active.slick-center.slick-current .read-more" , function() {
 
 
 
-    //     $backgroundDiv = $("<div/>", {
-    //         id: "background-modal",
-    //         "class": "a"
-    //     }).append(
-    //         $("<div/>", {
-    //             id: "full-quote-wrapper"
-    //         }).append(
-    //             $("<div/>", {
-    //                 id: "full-quote-inner"
-    //             }).append(
-    //                 $("<blockquote/>", {
-    //                     id: "full-quote",
-    //                     class: "regular-txt white-txt"
-    //                 })
-    //             ).append(
-    //                 $("<figcaption/>", {
-    //                     id: "full-sig",
-    //                     class: "regular-txt white-txt text-right"
-    //                 })
-    //             ).append(
-    //                 $("<figcaption/>", {
-    //                     id: "full-title",
-    //                     class: "regular-txt white-txt text-right"
-    //                 })
-    //             )
-    //         ).append(
-    //             $("<div/>", {
-    //                 id: "close-btn"
-    //             })
-    //         )
-    //     );
+        $backgroundDiv = $("<div/>", {
+            id: "background-modal",
+            "class": "a"
+        }).append(
+            $("<div/>", {
+                id: "full-quote-wrapper"
+            }).append(
+                $("<div/>", {
+                    id: "full-quote-inner"
+                }).append(
+                    $("<blockquote/>", {
+                        id: "full-quote",
+                        class: "regular-txt white-txt"
+                    })
+                ).append(
+                    $("<figcaption/>", {
+                        id: "full-sig",
+                        class: "regular-txt white-txt text-right"
+                    })
+                ).append(
+                    $("<figcaption/>", {
+                        id: "full-title",
+                        class: "regular-txt white-txt text-right"
+                    })
+                ).append(
+                    $("<a/>", {
+                        id: "link-to-site",
+						class: "regular-txt hero-orange-text text-right",
+						text: "Read More",
+						target: "_blank"
+                    })
+                )
+            ).append(
+                $("<div/>", {
+                    class: "close-btn"
+                })
+            )
+        );
 
-	// 	$("body").prepend($backgroundDiv);
+		$("body").prepend($backgroundDiv);
 		
-	// 	var coverCopy = $(this).find(".cover-copy-wrapper").data("quote");
-	// 	var copyAuthor = $(this).find(".cover-author").html();
-	// 	var copyTitle = $(this).find(".cover-title").html();
-	// 	console.log(copyAuthor, copyTitle)
-	// 	console.log($(this).find(".cover-copy").html())
-	// 	$("#full-quote").html(coverCopy);
+		 var copyTitle = $(this).parent().parent().find(".cover-title").html();
+		 var copyAuthor = $(this).parent().parent().find(".cover-author").html();
+		 var coverCopy = $(this).parent().parent().find(".cover-full-copy").html();
+		 var coverUrl = $(this).parent().parent().parent().find("a").attr("href")
+		console.log(coverUrl)
+		// console.log($(this).find(".cover-copy").html())
+		 $("#full-quote").html(coverCopy);
 		
-	// 	$("#full-sig").html(copyAuthor);
-	// 	$("#full-title").html(copyTitle);
+		 $("#full-sig").html(copyAuthor);
+		 $("#full-title").html(copyTitle);
+		 $("#link-to-site").attr("href", coverUrl);
 
 
+        return false;
 
-    //     return false;
+	});
 
-	// });
-	$(document).on("click", "#close-btn", function() {
+
+	$(document).on("click", ".cover-image-wrapper", function() {
+		return false;
+	})
+	$(document).on("click", ".close-btn", function() {
         $("#background-modal").fadeOut(300, function() {
             $(this).remove();
         });
     });
 
 
-	function truncateQuotes (){
-		$('.cover-copy-wrapper .cover-copy').each(function() {
-			$(this).show();
-			$quote = $(this).html();
-			$truncatedText = $quote.split(' ').slice(0, 50).join(' ') + " ... " + ''
-			$(this).data('content', $(this).html())
-			$(this).data('limit', $truncatedText)
-			$(this).html($(this).data('limit'))
-		});
-	}
+	// function truncateQuotes (){
+	// 	$('.cover-copy-wrapper .cover-copy').each(function() {
+	// 		$(this).show();
+	// 		$quote = $(this).html();
+	// 		$truncatedText = $quote.split(' ').slice(0, 50).join(' ') + " ... " + ''
+	// 		$(this).data('content', $(this).html())
+	// 		$(this).data('limit', $truncatedText)
+	// 		$(this).html($(this).data('limit'))
+	// 	});
+	// }
 
 
-	setTimeout(truncateQuotes, 2000)
+	// setTimeout(truncateQuotes, 2000)
 });
 
 
