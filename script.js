@@ -21,15 +21,16 @@ $( document ).ready(function() {
 		$(".sub-menu").hide();
 	});
 
-	$(document).on('mouseenter', '.language-link-mobile', function () {
+	$(document).on('mouseenter click', '.language-link-mobile', function () {
+		console.log("mobile language clicked")
 		$(".root-nav a").hide();
 		$(".root-nav").addClass("kill-pad");
 	});
-	$(document).on('mouseleave', '.language-link-mobile', function () {
-		$(".root-nav a").show();
-		$(".root-nav").removeClass("kill-pad");
+	// $(document).on('mouseleave  click', '.language-link-mobile', function () {
+	// 	$(".root-nav a").show();
+	// 	$(".root-nav").removeClass("kill-pad");
 
-	});
+	// });
 
 	$(document).on("click",".awards-item", function() {
 		var dataTitle = $(this).find(".categoryTitleHolder span").text();
@@ -45,9 +46,9 @@ $( document ).ready(function() {
 		$(".award-modal-wrapper").fadeOut();
 	});
 
-	$(document).on("click", ".root-nav", function() {
-		$(".sub-menu").hide();
-	});
+	// $(document).on("click", ".root-nav", function() {
+	// 	$(".sub-menu").hide();
+	// });
 
 	$(document).on('click', '.sub-menu a[href*="#"]', function(e) {
 		e.preventDefault()
