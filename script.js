@@ -45,6 +45,9 @@ $( document ).ready(function() {
 		$(".award-modal-wrapper").fadeOut();
 	});
 
+	$(document).on("click", ".root-nav", function() {
+		$(".sub-menu").hide();
+	});
 
 	$(document).on('click', '.sub-menu a[href*="#"]', function(e) {
 		e.preventDefault()
