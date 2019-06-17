@@ -13,6 +13,12 @@ $( document ).ready(function() {
 			$( this ).find(".learn-more-button").animate({'opacity':'0'}, 100);
 	});
 
+
+	$(document).on('click', '.root-nav', function () {
+		$(".sub-menu").hide();
+	});
+
+
 	$(document).on('mouseenter', '.country-wrapper', function () {
 		$(".sub-menu").css('display', 'flex');
 	});
@@ -21,9 +27,9 @@ $( document ).ready(function() {
 		$(".sub-menu").hide();
 	});
 
-	$(document).on('mouseenter click', '.language-link-mobile', function () {
-		console.log("mobile language clicked")
-		$(".root-nav a").hide();
+	$(document).on('mouseenter click touchstart', '.language-link-mobile', function () {
+		//console.log("mobile language clicked")
+		$(".root-nav").hide();
 		$(".root-nav").addClass("kill-pad");
 	});
 	// $(document).on('mouseleave  click', '.language-link-mobile', function () {
@@ -50,7 +56,7 @@ $( document ).ready(function() {
 	// 	$(".sub-menu").hide();
 	// });
 
-	$(document).on('click', '.sub-menu a[href*="#"]', function(e) {
+	$(document).on('click touchstart', '.sub-menu a[href*="#"]', function(e) {
 		e.preventDefault()
 	  
 		$('html, body').animate(
@@ -95,7 +101,7 @@ $( document ).ready(function() {
                     $("<a/>", {
                         id: "link-to-site",
 						class: "regular-txt hero-orange-text text-right",
-						text: "Read More",
+						text: "Read the story on Wattpad",
 						target: "_blank"
                     })
                 )
@@ -112,7 +118,7 @@ $( document ).ready(function() {
 		 var copyAuthor = $(this).parent().parent().find(".cover-author").html();
 		 var coverCopy = $(this).parent().parent().find(".cover-full-copy").html();
 		 var coverUrl = $(this).parent().parent().parent().find("a").attr("href")
-		console.log(coverUrl)
+			//console.log(coverUrl)
 		// console.log($(this).find(".cover-copy").html())
 		 $("#full-quote").html(coverCopy);
 		
