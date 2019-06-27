@@ -174,7 +174,19 @@ $( document ).ready(function() {
 	$(window).scroll(function(){
 		///console.log(!$(".intro-scroll").inView());
 		if ($( "#intro-scroll-id" ).hasClass( "intro-scroll-container" )) {
-			if (!$(".intro-scroll").inView()) {
+
+
+			var top_of_element = $(".intro-scroll").offset().top;
+			var bottom_of_element = $(".intro-scroll").offset().top + $(".intro-scroll").outerHeight();
+			var bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
+			var top_of_screen = $(window).scrollTop();
+		
+			if ((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)){
+				// the element is visible, do something
+				console.log("in view");
+			} else {
+				// the element is not visible, do something else
+				console.log("not in view");
 				$(".container.lock-scroll").removeClass("lock-scroll");
 				$(".intro-scroll-container").remove();
 				$('html, body').animate({scrollTop: '0px'}, 0);
@@ -184,8 +196,25 @@ $( document ).ready(function() {
 					opacity: 1
 				  },400);
 
-
 			}
+
+
+
+			// if ($(".intro-scroll").inView()) {
+			// 	console.log("in view");
+			// 	$(".container.lock-scroll").removeClass("lock-scroll");
+			// 	$(".intro-scroll-container").remove();
+			// 	$('html, body').animate({scrollTop: '0px'}, 0);
+			// 	$(".about-animation").css({opacity:1})
+
+			// 	$('.square-animation').animate({
+			// 		opacity: 1
+			// 	  },400);
+
+
+			// }else{
+			// 	console.log("not in view");
+			// }
 		}
 	
 	});
