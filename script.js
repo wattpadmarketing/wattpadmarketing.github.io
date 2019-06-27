@@ -1,7 +1,8 @@
 $( document ).ready(function() {
 	console.log( "ready!" );
 
-
+	// document.documentElement.style.overflow = 'hidden';
+	// document.body.scroll = "no";
 
 	$(document).on('mouseenter', '.awards-container .awards-item', function () {
 			$( this ).find(".award-over").animate({'opacity':'0'}, 500);
@@ -155,6 +156,42 @@ $( document ).ready(function() {
 
 
 	// setTimeout(truncateQuotes, 2000)
+	$.fn.inView = function(){
+		//Window Object
+		var win = $(window);
+		//Object to Check
+		obj = $(this);
+		//the top Scroll Position in the page
+		var scrollPosition = win.scrollTop();
+		//the end of the visible area in the page, starting from the scroll position
+		var visibleArea = win.scrollTop() + win.height();
+		//the end of the object to check
+		var objEndPos = (obj.offset().top + obj.outerHeight());
+		return(visibleArea >= objEndPos && scrollPosition <= objEndPos ? true : false)
+	};
+	
+	
+	$(window).scroll(function(){
+		///console.log(!$(".intro-scroll").inView());
+		if ($( "#intro-scroll-id" ).hasClass( "intro-scroll-container" )) {
+			if (!$(".intro-scroll").inView()) {
+				$(".container.lock-scroll").removeClass("lock-scroll");
+				$(".intro-scroll-container").remove();
+				$('html, body').animate({scrollTop: '0px'}, 0);
+				$(".about-animation").css({opacity:1})
+
+				$('.square-animation').animate({
+					opacity: 1
+				  },400);
+
+
+			}
+		}
+	
+	});
+
+	
+
 });
 
 
