@@ -13,15 +13,24 @@ $(document).ready(function() {
         });
 	});
 
+
+	$(document).on("click", ".icon", function() {
+
+		console.log("icon clicked");
+		var x = document.getElementById("main-nav");
+		if (x.className === "topnav") {
+		  x.className += " responsive";
+		} else {
+		  x.className = "topnav";
+		}
+
+		return false;
+	})
+
 });
 
 
 
-function myFunction() {
-	var x = document.getElementById("main-nav");
-	if (x.className === "topnav") {
-	  x.className += " responsive";
-	} else {
-	  x.className = "topnav";
-	}
-  }
+// function myFunction() {
+
+//   }
