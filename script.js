@@ -25,7 +25,11 @@ $(document).ready(function() {
 		}
 
 		return false;
-	})
+	});
+
+	$( document ).scroll(function() {
+		$(".topnav").removeClass("responsive");
+	  	});
 
 });
 
