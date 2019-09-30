@@ -1,5 +1,4 @@
 $( document ).ready(function() {
-	console.log( "lets go!" );
 
 
 	$(document).on('click', '.root-nav', function () {
@@ -46,9 +45,6 @@ $( document ).ready(function() {
 	  })
 
 
-
 	
 
 });
-
-
