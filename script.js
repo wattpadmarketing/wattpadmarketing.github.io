@@ -14,6 +14,7 @@ $( document ).ready(function() {
 		//console.log("mobile language clicked")
 		$(".root-nav").hide();
 		$(".root-nav").addClass("kill-pad");
+		return false;
 	});
 	// $(document).on('mouseleave  click', '.language-link-mobile', function () {
 	// 	$(".root-nav a").show();
