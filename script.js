@@ -2,8 +2,9 @@ $( document ).ready(function() {
 	console.log( "ready!" );
 
 
-	$(document).on('mouseenter', '.country-wrapper', function () {
+	$(document).on('mouseenter click', '.country-wrapper', function () {
 		$(".country-list").css('display', 'flex');
+
 	});
 
 	$(document).on('mouseleave', 'header', function () {
@@ -14,7 +15,7 @@ $( document ).ready(function() {
 		//console.log("mobile language clicked")
 		$(".root-nav").hide();
 		$(".root-nav").addClass("kill-pad");
-		return false;
+		
 	});
 	// $(document).on('mouseleave  click', '.language-link-mobile', function () {
 	// 	$(".root-nav a").show();
