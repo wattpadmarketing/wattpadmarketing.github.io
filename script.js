@@ -2,6 +2,42 @@ $( document ).ready(function() {
 	console.log( "ready!" );
 
 
+
+
+	//awards categories //
+	$(document).on("click",".awards-item", function() {
+		var dataTitle = $(this).find(".categoryTitleHolder span").text();
+		var dataCopy = $(this).find(".categoryCopyHolder span").text();
+		var dataImage = $(this).find(".award-over").attr('src');
+		$("#modal-award-title").html(dataTitle);
+		$("#modal-award-copy").html(dataCopy);
+		$('.award-modal-wrapper').css('background-image', 'url(' + dataImage + ')');
+		$(".award-modal-wrapper").fadeIn();
+		$(".modal-bg").addClass("modal-bg-active");
+	});
+
+	$(document).on("click", ".close-btn", function() {
+		$(".award-modal-wrapper").fadeOut();
+		$(".modal-bg").removeClass("modal-bg-active");
+	});
+
+	$(document).on('mouseenter', '.awards-container .awards-item', function () {
+		$( this ).find(".award-over").animate({'opacity':'0'}, 500);
+		$( this ).find(".award-title").animate({'opacity':'0'}, 500);
+		$( this ).find(".award-active").animate({'opacity':'1'}, 500);
+		$( this ).find(".learn-more-button").animate({'opacity':'1'}, 500);
+  	}).on('mouseleave', '.awards-container .awards-item', function () {
+		$( this ).find(".award-over").animate({'opacity':'1'}, 100);
+		$( this ).find(".award-active").animate({'opacity':'0'}, 100);
+		$( this ).find(".learn-more-button").animate({'opacity':'0'}, 100);
+		$( this ).find(".award-title").animate({'opacity':'1'}, 500);
+
+	});
+
+
+	//awards categories//
+
+
 	$(document).on('mouseenter click', '.country-wrapper', function () {
 		$(".country-list").css('display', 'flex');
 
