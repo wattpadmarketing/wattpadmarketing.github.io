@@ -1,9 +1,6 @@
 $( document ).ready(function() {
 	console.log( "ready!" );
 
-
-
-
 	//awards categories //
 	$(document).on("click",".awards-item", function() {
 		var dataTitle = $(this).find(".categoryTitleHolder span").text();
@@ -31,7 +28,6 @@ $( document ).ready(function() {
 		$( this ).find(".award-active").animate({'opacity':'0'}, 100);
 		$( this ).find(".learn-more-button").animate({'opacity':'0'}, 100);
 		$( this ).find(".award-title").animate({'opacity':'1'}, 500);
-
 	});
 
 
@@ -48,17 +44,10 @@ $( document ).ready(function() {
 	});
 
 	$(document).on('mouseenter click touchstart', '.language-link-mobile', function () {
-		//console.log("mobile language clicked")
 		$(".root-nav").hide();
 		$(".root-nav").addClass("kill-pad");
 		
 	});
-	// $(document).on('mouseleave  click', '.language-link-mobile', function () {
-	// 	$(".root-nav a").show();
-	// 	$(".root-nav").removeClass("kill-pad");
-
-	// });
-
 
 
 	$(document).on('click touchstart', '.sub-menu a[href*="#"]', function(e) {
