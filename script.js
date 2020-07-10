@@ -7,15 +7,17 @@ $( document ).ready(function() {
 		var dataCopy = $(this).find(".categoryCopyHolder span").text();
 		var dataImage = $(this).find(".award-over").attr('src');
 		$("#modal-award-title").html(dataTitle);
-		$("#modal-award-copy").html(dataCopy);
+		$("#modal-award-copy").html(dataCopy + dataCopy);
 		$('.award-modal-wrapper').css('background-image', 'url(' + dataImage + ')');
 		$(".award-modal-wrapper").fadeIn();
-		$(".modal-bg").addClass("modal-bg-active");
+		// $(".modal-bg").addClass("modal-bg-active");
+		$('body').css('overflow', 'hidden');
 	});
 
 	$(document).on("click", ".close-btn", function() {
 		$(".award-modal-wrapper").fadeOut();
-		$(".modal-bg").removeClass("modal-bg-active");
+		// $(".modal-bg").removeClass("modal-bg-active");
+		$('body').css('overflow', 'auto');
 	});
 
 	$(document).on('mouseenter', '.awards-container .awards-item', function () {
