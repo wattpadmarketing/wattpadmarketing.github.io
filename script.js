@@ -7,7 +7,7 @@ $( document ).ready(function() {
 		var dataCopy = $(this).find(".categoryCopyHolder span").text();
 		var dataImage = $(this).find(".award-over").attr('src');
 		$("#modal-award-title").html(dataTitle);
-		$("#modal-award-copy").html(dataCopy + dataCopy);
+		$("#modal-award-copy").html(dataCopy);
 		$('.award-modal-wrapper').css('background-image', 'url(' + dataImage + ')');
 		$(".award-modal-wrapper").fadeIn();
 		// $(".modal-bg").addClass("modal-bg-active");
